@@ -35,38 +35,164 @@ typedef map<int,int> mapi;
         {code}\
         return in;\
     }
-template<class T>T gcd(T a,T b){while(a&&b)if(a>b)a%=b;else b%=a;return a+b;}
-template<class T>void sortf(vector<T>&v){stable_sort(v.begin(),v.end());}
-template<class T>void sortb(vector<T>&v){stable_sort(v.rbegin(),v.rend());}
-template<class T>T max3(T a,T b,T c){return max(a,max(b,c));}template<class T>T
-min3(T a,T b,T c){return min(a,min(b,c));}template<typename T>istream&operator>>
-(istream&in,vector<T>&v){for(T&t:v)in>>t;return in;}ostream&operator<<(ostream&
-out,const vector<char>&v){for(const char&t:v)out<<t;out<<endl;return out;}
-template<typename T>ostream&operator<<(ostream&out,const vector<T>&v){for(const
-T&t:v)out<<t<<' ';return out;}static void init_iostream_speed(){cin.tie(nullptr)
-;cout.tie(nullptr);ios::sync_with_stdio(false);}template<typename T>T lcm(T a,T
-b){return a*b/gcd(a,b);}template<class T>void swap(T*a,T*b){T c=*a;*a=*b;*b=c;}
-template<typename T>class vector2:public vector<T>{public:int min_ind(){return
-min_element(this->begin(),this->end())-this->begin();}int max_ind(){return
-max_element(this->begin(),this->end())-this->begin();}T min(){return*min_element
-(this->begin(),this->end());}T max(){return*max_element(this->begin(),this->end(
-));}void sortf(){::sortf(*this);}void sortb(){::sortb(*this);}vector2():vector<T
->(){}vector2(vector<T>__v):vector<T>(__v){}vector2(initializer_list<T>__i_l):
-vector<T>(__i_l){}vector2(size_t __n,size_t __val=0):vector<T>(__n,__val){}};
-template<class T>T sum(vector<T>&vc){T ans=0;for(T&v:vc)ans+=v;return ans;}int
-nextInt(){int t;cin>>t;return t;}ll nextLong(){ll t;cin>>t;return t;}constexpr 
-ll MOD=1000000007;bool operator<<(const string&a,const string&b){if(a==b)return
-true;if(a.size()!=b.size())return a.size()<b.size();return a<b;}int intlen(ll x)
-{int res=1;while(x/=10)res++;return res;}string operator*(const string&s,int x){
-string a;while(x--)a+=s;return a;}ll factorial(int x){ll a=1;for(int i=1;i<=x;i
-++)a*=i;return a;}template<class T>void reverse(vector<T>&a){for(int i=0;i<(int)
-a.size()/2;i++)swap(a[i],a[a.size()-1-i]);}
 
+template <class T> T gcd(T a, T b) {
+     while (a && b)
+         if (a > b)
+             a %= b;
+         else 
+             b %= a;
+     return a + b;
+}
+
+template <class T> void sortf(vector<T> &v) {
+     stable_sort(v.begin(), v.end());
+}
+
+template <class T> void sortb(vector<T> &v) {
+      stable_sort(v.rbegin(), v.rend());
+}
+
+template <class T> T max3(T a, T b, T c) {
+     return max(a, max(b, c));
+}
+
+template <class T> T min3(T a, T b, T c) {
+     return min(a, min(b, c));
+}
+
+template <typename T> istream &operator>> (istream &in, vector<T> &v) {
+      for (T &t : v)
+          in >> t;
+      return in;
+}
+
+ostream &operator<< (ostream &out, const vector<char> &v) {
+    for (const char &t : v)
+        out << t;
+    out << endl;
+    return out;
+}
+
+template <typename T> ostream &operator<< (ostream &out, const vector<T> &v) {
+    for (const T &t : v)
+        out << t << ' ';
+    return out;
+}
+
+static void init_iostream_speed() {
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    ios::sync_with_stdio(false);
+}
+
+template <typename T> T lcm(T a, T b) {
+    return a * b / gcd(a, b);
+}
+
+template <class T> void swap(T *a,T *b) {
+    T c = *a;
+    *a = *b;
+    *b = c;
+}
+
+template <typename T> class vector2 : public vector<T> {
+    public:
+        int min_ind() {
+            return min_element(this->begin(), this->end()) - this->begin();
+        }
+
+        int max_ind(){
+            return max_element(this->begin(), this->end()) - this->begin();
+        }
+    
+        T min() {
+            return *min_element(this->begin(), this->end());
+        }
+    
+        T max() {
+            return *max_element(this->begin(), this->end());
+        }
+    
+        void sortf() {
+            ::sortf(*this);
+        }
+    
+        void sortb() {
+            ::sortb(*this);
+        }
+
+        vector2() : vector<T>()
+            {}
+        vector2(vector<T> __v) : vector<T>(__v)
+            {}
+        vector2(initializer_list<T> __i_l) : vector<T>(__i_l)
+            {}
+        vector2(size_t __n, size_t __val = 0) : vector<T>(__n, __val)
+            {}
+};
+
+template <class T> T sum(vector<T> &vc) {
+    T ans = 0;
+    for (T &v : vc)
+        ans += v;
+    return ans;
+}
+
+int nextInt() {
+    int t;
+    cin >> t;
+    return t;
+}
+
+ll nextLong() {
+    ll t;
+    cin >> t;
+    return t;
+}
+
+constexpr ll MOD = 1000000007;
+
+bool operator << (const string &a, const string &b) {
+    if (a == b)
+        return true;
+    if (a.size() != b.size())
+        return a.size() < b.size();
+    return a < b;
+}
+
+int intlen(ll x) {
+    int res = 1;
+    while (x /= 10)
+        res++;
+    return res;
+}
+
+string operator * (const string &s, int x) {
+    string a;
+    while (x--)
+        a += s;
+    return a;
+}
+
+ll factorial(int x) {
+    ll a = 1;
+    for (int i = 1; i <= x; i++)
+        a *= i;
+    return a;
+}
+
+template <class T> void reverse(vector<T> &a) {
+    for (int i = 0; i < (int)a.size() / 2; i++)
+        swap(a[i], a[a.size() - 1 - i]);
+}
 
 
 template <class T> struct reader : public T {
-    template <class ...Con> reader(Con &&...par):T
-(par...){cin>>*this;}};
+    template <class ...Con> reader(Con &&...par) : T(par...) {
+          cin >> *this;
+    }
+};
 
 template <> class reader<int> {
     int x;
@@ -108,9 +234,9 @@ class Answerer {
          }
 };
 
-Answerer __answer(cout);    
-
+Answerer fanswer(cout);    
 mt19937 rnd(228);
+
 inline void __main_task();
 signed main() {
 /**/    init_iostream_speed();
@@ -125,6 +251,6 @@ signed main() {
 }
 
 inline void __main_task() {
-
+    reader<int> a, b;
+    answer(a + b);
 }
-
