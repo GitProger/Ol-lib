@@ -46,25 +46,25 @@ template <class T> T gcd(T a, T b) {
 }
 
 template <class T> void sortf(vector<T> &v) {
-     stable_sort(v.begin(), v.end());
+    stable_sort(v.begin(), v.end());
 }
 
 template <class T> void sortb(vector<T> &v) {
-      stable_sort(v.rbegin(), v.rend());
+    stable_sort(v.rbegin(), v.rend());
 }
 
 template <class T> T max3(T a, T b, T c) {
-     return max(a, max(b, c));
+    return max(a, max(b, c));
 }
 
 template <class T> T min3(T a, T b, T c) {
-     return min(a, min(b, c));
+    return min(a, min(b, c));
 }
 
 template <typename T> istream &operator>> (istream &in, vector<T> &v) {
-      for (T &t : v)
-          in >> t;
-      return in;
+     for (T &t : v)
+         in >> t;
+     return in;
 }
 
 ostream &operator<< (ostream &out, const vector<char> &v) {
