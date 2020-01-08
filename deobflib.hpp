@@ -132,7 +132,7 @@ template <typename T> class vector2 : public vector<T> {
             {}
 };
 
-template <class T> T sum(vector<T> &vc) {
+template <class T> T sum(const vector<T> &vc) {
     T ans = 0;
     for (T &v : vc)
         ans += v;
