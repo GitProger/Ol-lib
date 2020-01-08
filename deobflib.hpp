@@ -205,7 +205,6 @@ template <> class reader<int> {
         }
 };
 
-
 class TaskAnswer
     {};
 
@@ -225,15 +224,14 @@ class Answerer {
              out << $;
              throw TaskAnswer();
         }
-     public:
-         Answerer(ostream &os) : out(os)
-             {}
-         template <class C, class ...Ts> void operator() (C &&cur, Ts &&...args) {
-             out << cur;
-             this->operator()(args...);
-         }
+    public:
+        Answerer(ostream &os) : out(os)
+            {}
+        template <class C, class ...Ts> void operator() (C &&cur, Ts &&...args) {
+            out << cur;
+            this->operator()(args...);
+        }
 };
-
 Answerer fanswer(cout);    
 mt19937 rnd(228);
 
