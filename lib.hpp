@@ -62,7 +62,7 @@ string a;while(x--)a+=s;return a;}ll factorial(int x){ll a=1;for(int i=1;i<=x;i
 ++)a*=i;return a;}template<class T>void reverse(vector<T>&a){for(int i=0;i<(int)
 a.size()/2;i++)swap(a[i],a[a.size()-1-i]);}
 
-template<class T>struct reader:public T{template<class...Con>reader(Con...&&par)
+template<class T>struct reader:public T{template<class...Con>reader(Con&&...par)
 :T(par...){cin>>*this;}};template<>class reader<int>{int x;public:reader(){cin>>
 x;}operator int(){return x;}};
 
