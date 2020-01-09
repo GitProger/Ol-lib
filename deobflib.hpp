@@ -153,7 +153,7 @@ ll nextLong() {
 
 constexpr ll MOD = 1000000007;
 
-bool operator << (const string &a, const string &b) { // compare strings as integers  "34" << "100" <=> 43 <= 100
+bool operator << (const string &a, const string &b) { // compare strings as integers  "34" << "100" <=> 34 <= 100
     if (a == b)
         return true;
     if (a.size() != b.size())
