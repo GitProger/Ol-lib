@@ -90,7 +90,7 @@ template <typename T> T lcm(T a, T b) {
     return a * b / gcd(a, b);
 }
 
-template <class T> void swap(T *a,T *b) {
+template <class T> void swap(T *a, T *b) {
     T c = *a;
     *a = *b;
     *b = c;
@@ -102,7 +102,7 @@ template <typename T> class vector2 : public vector<T> {
             return min_element(this->begin(), this->end()) - this->begin();
         }
 
-        int max_ind(){
+        int max_ind() {
             return max_element(this->begin(), this->end()) - this->begin();
         }
     
@@ -134,7 +134,7 @@ template <typename T> class vector2 : public vector<T> {
 
 template <class T> T sum(const vector<T> &vc) {
     T ans = 0;
-    for (T &v : vc)
+    for (const T &v : vc)
         ans += v;
     return ans;
 }
@@ -153,7 +153,7 @@ ll nextLong() {
 
 constexpr ll MOD = 1000000007;
 
-bool operator << (const string &a, const string &b) {
+bool operator << (const string &a, const string &b) { // compare strings as integers  "34" << "100" <=> 43 <= 100
     if (a == b)
         return true;
     if (a.size() != b.size())
@@ -212,7 +212,7 @@ void answer () {
     cout << $;
     throw TaskAnswer();
 }
-template <class C, class ...Ts> void answer(C &&cur,Ts &&...args) {
+template <class C, class ...Ts> void answer(C &&cur, Ts &&...args) {
     cout << cur;
     answer(args...);
 }
@@ -232,14 +232,15 @@ class Answerer {
             this->operator()(args...);
         }
 };
-Answerer fanswer(cout);    
+
+Answerer fanswer(cout);
 mt19937 rnd(228);
 
 inline void __main_task();
 signed main() {
 /**/    init_iostream_speed();
-//**/    for (;;) { try { __main_task(); } catch (TaskAnswer) {} cout << endl; }
-//**/    int t; cin >> t; while(t--)
+//**/    for (;;) { try { __main_task(); } catch (TaskAnswer) {} cout << endl; } /// DEBUG
+//**/    int t; cin >> t; while (t--)                                            /// MULTITEST
         try {
             __main_task();
         } catch (TaskAnswer) {
