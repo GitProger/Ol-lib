@@ -5,12 +5,13 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 typedef long long var;
-typedef pair<int,int>pri;
-typedef pair<ll,ll>prl;
+typedef pair<int,int>prii;
+typedef pair<ll,ll>prll;
 typedef vector<int>veci;
 typedef vector<ll>vecl;
 typedef vector<veci> graph;
-typedef map<int,int> mapi;
+typedef map<int,int> mapii;
+typedef set<int> seti;
 typedef bitset<64> bits;
 #define WHITE 0
 #define GRAY  1
