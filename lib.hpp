@@ -11,6 +11,7 @@ typedef vector<int>veci;
 typedef vector<ll>vecl;
 typedef vector<veci> graph;
 typedef map<int,int> mapi;
+typedef bitset<64> bits;
 #define WHITE 0
 #define GRAY  1
 #define BLACK 2
@@ -24,6 +25,8 @@ typedef map<int,int> mapi;
 #define vec vector
 #define forn(i,n) for(int i=0;i<(n);i++)
 #define mod(a) ((a)%(MOD))
+#define MAX LONG_LONG_MAX
+#define MIN LONG_LONG_MIN
 #define $ '\n'
 #define coutop(type, code) \
     ostream &operator << (ostream &out, const type &__##type) { \
