@@ -5,12 +5,14 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 typedef long long var;
-typedef pair<int,int>pri;
+typedef pair<int,int>prii;
 typedef pair<ll,ll>prl;
 typedef vector<int>veci;
 typedef vector<ll>vecl;
 typedef vector<veci> graph;
-typedef map<int,int> mapi;
+typedef map<int,int> mapii;
+typedef set<int> seti;
+typedef bitset<64> bits;
 #define WHITE 0
 #define GRAY  1
 #define BLACK 2
@@ -25,6 +27,8 @@ typedef map<int,int> mapi;
 #define forn(i,n) for(int i=0;i<(n);i++)
 #define mod(a) ((a)%(MOD))
 #define $ '\n'
+#define MAX LONG_LONG_MAX
+#define MIN LONG_LONG_MIN
 #define coutop(type, code) \
     ostream &operator << (ostream &out, const type &__##type) { \
         {code}\
