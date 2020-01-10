@@ -6,7 +6,7 @@ typedef long long ll;
 typedef long double ld;
 typedef long long var;
 typedef pair<int,int>prii;
-typedef pair<ll,ll>prl;
+typedef pair<ll,ll>prll;
 typedef vector<int>veci;
 typedef vector<ll>vecl;
 typedef vector<veci> graph;
