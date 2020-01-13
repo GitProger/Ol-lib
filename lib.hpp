@@ -63,8 +63,8 @@ return t;}constexpr ll MOD=1000000007;bool operator<<(const string&a,const
 string&b){if(a==b)return true;if(a.size()!=b.size())return a.size()<b.size();
 return a<b;}int intlen(ll x){int res=1;while(x/=10)res++;return res;}string 
 operator*(const string&s,int x){string a;while(x--)a+=s;return a;}ll factorial(
-int x){ll a=1;for(int i=1;i<=x;i++)a*=i;return a;}template<class T>void reverse(
-vector<T>&a){for(int i=0;i<(int)a.size()/2;i++)swap(a[i],a[a.size()-1-i]);}
+int x){ll a=1;for(int i=1;i<=x;i++)a*=i;return a;}template<class T>T reverse(T o
+){reverse(all(o));return o;}
 
 template<class T>struct reader:public T{template<class...Con>reader(Con&&...par)
 :T(par...){cin>>*this;}};template<>class reader<int>{int x;public:reader(){cin>>
