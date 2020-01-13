@@ -186,11 +186,10 @@ ll factorial(int x) {
     return a;
 }
 
-template <class T> void reverse(vector<T> &a) {
-    for (int i = 0; i < (int)a.size() / 2; i++)
-        swap(a[i], a[a.size() - 1 - i]);
+template <class T> T reverse(T obj) {
+    reverse(all(obj));
+    return obj;
 }
-
 
 template <class T> struct reader : public T {
     template <class ...Con> reader(Con &&...par) : T(par...) {
