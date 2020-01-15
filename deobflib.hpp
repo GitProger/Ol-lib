@@ -236,6 +236,30 @@ class Answerer {
         }
 };
 
+veci prefix_function(string s) {
+    int n = s.size();
+    veci p(n);
+    for (int i = 1, j; i < n; i++) {
+        j = p[i - 1];
+        while (j > 0 && s[i] != s[j])
+            j = p[j - 1];
+        if (s[i] == s[j])
+            j++;
+        p[i] = j;
+    }
+    return p;
+}
+
+int knut(string s, string t) {
+    auto p = prefix_function(s + '$' + t);
+    int n = s.size(), m = t.size();
+    for (int i = n + 1; i <= n + m; i++)
+        if (p[i] == n)
+            return i - n - 1;
+    return -1;
+}
+
+
 Answerer fanswer(cout);
 mt19937 rnd(228);
 
