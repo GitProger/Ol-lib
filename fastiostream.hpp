@@ -1,7 +1,5 @@
 #ifndef __LIGHT_STREAM_LIB_INC
 #define __LIGHT_STREAM_LIB_INC
-#include <stdio.h>
-#include <typeinfo>
 
 #define FASTIO_PATTERN(op, type, code) \
         fastio &operator op (type) { \
