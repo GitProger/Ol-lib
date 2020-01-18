@@ -5,9 +5,7 @@
 
 #define FASTIO_PATTERN(op, type, code) \
         fastio &operator op (type) { \
-            { \
-                code; \
-            } \
+            code; \
             return *this; \
         }
 
