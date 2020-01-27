@@ -76,6 +76,9 @@ Answerer{private:ostream&out;void operator()(){out<<$;throw TaskAnswer();}
 public:Answerer(ostream&os):out(os){}template<class C,class...Ts>void operator()
 (C&&cur,Ts&&...args){out<<cur;this->operator()(args...);}};
 
+class yesno{private:string yes,no;public:yesno(string y,string n):yes(y),no(n){}
+string operator()(bool ok)const{return ok?this->yes:this->no;}};
+
 Answerer __answer(cout);    
 mt19937 rnd(228);
 
