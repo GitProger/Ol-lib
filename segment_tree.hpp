@@ -29,16 +29,16 @@ class segment_tree {
            return sum(v * 2, tl, tm, l, min(r, tm))
                 + sum(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r);
         }
-        void update(int v = 1, int tl = 0, int tr = n - 1, int pos, int new_val) {
+        void assign(int v = 1, int tl = 0, int tr = n - 1, int pos, int new_val) {
             if (tl == tr) {
                 t[v] = new_val;
                 return;
             }
             int tm = (tl + tr) / 2;
             if (pos <= tm)
-                update(v * 2, tl, tm, pos, new_val);
+                assign(v * 2, tl, tm, pos, new_val);
             else
-                update(v * 2 + 1, tm + 1, tr, pos, new_val);
+                assign(v * 2 + 1, tm + 1, tr, pos, new_val);
             t[v] = t[v * 2] + t[v * 2 + 1];
         }
 };
