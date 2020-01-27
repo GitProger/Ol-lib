@@ -24,25 +24,25 @@ class segment_tree {
             build(a);
         }
     
-        int sum(int v = 1, int tl = 0, int tr = n - 1, int l, int r) {
+        int sum(int l, int r, int v = 1, int tl = 0, int tr = n - 1) {
             if (l > r)
                 return 0;
             if (l == tl && r == tr)
                 return t[v];
             int tm = (tl + tr) / 2;
-            return sum(v * 2, tl, tm, l, min(r, tm))  +  sum(v * 2 + 1, tm + 1, tr, max(l, tm + 1), r);
+            return sum(l, min(r, tm), v * 2, tl, tm)  +  sum(max(l, tm + 1), r, v * 2 + 1, tm + 1, tr);
         }
     
-        void assign(int v = 1, int tl = 0, int tr = n - 1, int pos, int new_val) {
+        void assign(int pos, int new_val, int v = 1, int tl = 0, int tr = n - 1) {
             if (tl == tr) {
                 t[v] = new_val;
                 return;
             }
             int tm = (tl + tr) / 2;
             if (pos <= tm)
-                assign(v * 2, tl, tm, pos, new_val);
+                assign(pos, new_val, v * 2, tl, tm);
             else
-                assign(v * 2 + 1, tm + 1, tr, pos, new_val);
+                assign(pos, new_val, v * 2 + 1, tm + 1, tr);
             t[v] = t[v * 2] + t[v * 2 + 1];
         }
 };
