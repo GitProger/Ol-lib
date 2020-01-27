@@ -1,6 +1,11 @@
-#ifndef BUF
-#define BUF 2048
-#endif
+int nearist2pow(int x) {
+    int p = 0;
+    while (x) {
+        x /= 2;
+        p++;
+    }
+    return 1 << p;
+}
 
 class segment_tree {
     private:
@@ -20,7 +25,7 @@ class segment_tree {
     public:
         segment_tree(const vector<int> &a) {
             this->n = a.size();
-            this->t = new int[this->n + BUF];
+            this->t = new int[nearest2pow(this->n)];
             build(a);
         }
     
