@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 /////////////////
-  #define __FILE_IO_TASK
+  //#define __FILE_IO_TASK
   #ifdef __FILE_IO_TASK
   ifstream in_str_io("in");
   ofstream out_str_io("out");
