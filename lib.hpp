@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 /////////////////
+  #define __FILE_IO_TASK
+  #ifdef __FILE_IO_TASK
+  ifstream in_str_io("in");
+  ofstream out_str_io("out");
+  #define cout out_str_io
+  #define cin in_str_io
+  #endif
   #define int ll
 typedef long long ll;
 typedef long double ld;
