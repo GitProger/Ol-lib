@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-/////////////////
-  //#define __FILE_IO_TASK
-  #ifdef __FILE_IO_TASK
+/*
   ifstream in_str_io("in");
   ofstream out_str_io("out");
   #define cout out_str_io
   #define cin in_str_io
-  #endif
-  #define int ll
+  #endif //*/
+#define int ll
 typedef long long ll;
 typedef long double ld;
 typedef long long var;
@@ -31,11 +29,12 @@ typedef bitset<64> bits;
 #define msort stable_sort
 #define hsort heap_sort
 #define vec vector
-#define forn(i,n) for(int i=0;i<(n);i++)
+#define forn(i,n) for(int i=0;i<(int)(n);i++)
 #define mod(a) ((a)%(MOD))
+#define $ '\n'
+#define last(con) if(con)break
 #define MAX LONG_LONG_MAX
 #define MIN LONG_LONG_MIN
-#define $ '\n'
 #define coutop(type, code) \
     ostream &operator << (ostream &out, const type &__##type) { \
         {code}\
@@ -83,22 +82,49 @@ Answerer{private:ostream&out;void operator()(){out<<$;throw TaskAnswer();}
 public:Answerer(ostream&os):out(os){}template<class C,class...Ts>void operator()
 (C&&cur,Ts&&...args){out<<cur;this->operator()(args...);}};
 
+veci pre_func(const string&s){int n=s.size();veci p(n);for(int i=1;i<n;i++){int
+j=p[i-1];while(j>0&&s[j]!=s[i])j=p[j-1];if(s[i]==s[j])j++;p[i]=j;}return p;}int
+knut(const string&s,const string&t){auto p = pre_func(s + '$' + t);int n=s.size(
+),m=t.size();for(int i=n+1;i<=n+m;i++)if(p[i]==n)return i-n-n;return-1;}
+
+#define FASTIO_PATTERN(op,type,code)fastio&operator op(type){code;return*this;}
+class fastio{private:FILE*out=stdout;FILE*in=stdin;FILE *err = stderr;template<
+class T>void write(const T&val){this->operator<<(val);}template<class T>void
+read(T&val){this->operator>>(val);}template<class T>void error(const T&val){this
+->operator<=(val);}public:fastio(){}~fastio(){}FASTIO_PATTERN(>>,char*val,scanf(
+"%s",val))FASTIO_PATTERN(<<,const char*val,printf("%s",val))FASTIO_PATTERN(<=,
+const char*val,fprintf(this->err,"%s",val))/*FASTIO_PATTERN(>>, int &val, scanf(
+"%d", &val))FASTIO_PATTERN(<<, int val, printf("%d", val))*/FASTIO_PATTERN(>>,
+long long&val,scanf("%lld",&val))FASTIO_PATTERN(<<,long long val,printf("%lld",
+val))FASTIO_PATTERN(>>,long&val,scanf("%ld",&val))FASTIO_PATTERN(<<,long val,
+printf("%ld",val))FASTIO_PATTERN(>>,short&val,scanf("%hd",&val))FASTIO_PATTERN(
+<<,short val,printf("%hd",val))FASTIO_PATTERN(>>,char&val,scanf("%c",&val))
+FASTIO_PATTERN(<<,char val,printf("%c",val))template<class T,class...AT>void
+write(const T&val,const AT&...args){this->operator<<(val);this->write(args...);}
+template<class T,class...AT>void read(T&val,AT&...args){this->operator>>(val);
+this->read(args...);}template<class T,class...AT>void error(const T&val,const AT
+&...args){this->operator<=(val);this->error(args...);}};
+#undef FASTIO_PATTERN
+template<class T>fastio&operator<<(fastio&out,const vector<T>&a){for(const T&x:a
+)out<<x<<' ';return out;}template<class T>fastio&operator>>(fastio&in,vector<T>&
+a){for(int&x:a)in>>x;return in;}fastio console;
+
 class yesno{private:string yes,no;public:yesno(string y,string n):yes(y),no(n){}
 string operator()(bool ok)const{return ok?this->yes:this->no;}};
 
-Answerer __answer(cout);    
-mt19937 rnd(228);
 
-inline void __main_task();
+Answerer fanswer(cout);
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+inline void solve();
 signed main() {
 /**/    init_iostream_speed();
-//**/    for(;;){try{__main_task();}catch(TaskAnswer){}cout<<endl;}
+//**/    for(;;){try{solve();}catch(TaskAnswer){}cout<<endl;}
 //**/    int t;cin>>t;while(t--)
-        try{__main_task();}catch(TaskAnswer){}
+        try{solve();}catch(TaskAnswer){}catch(...){cout<<"0\n";}
         cout.flush();
         return 0;
 }
 
-inline void __main_task() {
+inline void solve() {
 
 }
