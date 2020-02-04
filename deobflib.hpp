@@ -262,7 +262,7 @@ int knut(string s, string t) {
     int n = s.size(), m = t.size();
     for (int i = n + 1; i <= n + m; i++)
         if (p[i] == n)
-            return i - n - 1;
+            return i - n - n;
     return -1;
 }
 
