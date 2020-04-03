@@ -257,6 +257,22 @@ veci prefix_function(string s) {
     return p;
 }
 
+veci z_func(const string &s) {
+    int n = (int)s.size();
+    veci z(n);
+    for (int i = 1, l = 0, r = 0; i < n; i++) {
+        if (i <= r) 
+            z[i] = min(r - i + 1, z[i - l]);
+        while (i + z[i] < n && s[z[i]] == s[i + z[i]])
+            z[i]++;
+        if (i + z[i] - 1 > r) {
+            l = i;
+            r= i + z[i] - 1;
+        }
+    }
+    return z;
+}
+
 int knut(string s, string t) {
     auto p = prefix_function(s + '$' + t);
     int n = s.size(), m = t.size();
@@ -276,6 +292,15 @@ class yesno {
              return ok ? this->yes : this->no;
         }
 };
+
+template <class ResType, class InputType> vector<ResType>
+Map(ResType (*func)(InputType), const vector<InputType> &was) {
+    vector<ResType> res;
+    res.reserve(was.size());
+    for (const auto &e : was)
+        res.push_back(func(e));
+    return res;
+}
 
 Answerer fanswer(cout);
 mt19937 rnd(228);
