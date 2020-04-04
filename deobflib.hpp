@@ -243,6 +243,30 @@ class Answerer {
         }
 };
 
+struct Fenwick { // + -> min, to prefix min
+    int *t, n;
+    ~Fenwick() { delete[] t; }
+    Fenwick(const vector<int> &a) : n(a.size()) {
+        t = new int[n];
+        for (int i = 0; i < n; i++)
+            set(i, a[i]);
+    }
+    void set(int i, int val) {
+        for (; i < n; i |= (i + 1))
+            t[i] = t[i] + val;
+    }    
+    int get(int r) const {
+        int s = 0;
+        for (; r >= 0; r = (r & (r + 1)) - 1)
+            s = s + t[r];
+        return s;
+    }
+    int operator [] (int p) const { return get(p); }
+    int operator () (int l, int r) const
+        { return get(r) - get(l - 1); }
+};
+
+
 veci prefix_function(string s) {
     int n = s.size();
     veci p(n);
