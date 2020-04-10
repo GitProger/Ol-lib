@@ -326,6 +326,25 @@ Map(ResType (*func)(InputType), const vector<InputType> &was) {
     return res;
 }
 
+class poly_hash {
+    private:public:
+        const int M = MOD;
+        int seed, n;
+        vector<int> pows, hsh;
+    public:
+        poly_hash(const string &s) : seed(228), n((int)s.size()) {
+            pows.push_back(1);
+            for (int i = 1; i <= n; i++)
+                pows.push_back((pows.back() * seed + M) % M);
+            hsh = vector<int>(n + 1);
+            for (int i = 0; i < n; i++)
+                hsh[i + 1] = ((hsh[i] * seed + s[i]) % M + M) % M;       
+        }
+        int sub_hash(int l, int r) const {
+            return ((hsh[r] - hsh[l] * pows[r - l]) % M + M) % M;
+        }
+};
+
 Answerer fanswer(cout);
 mt19937 rnd(228);
 
