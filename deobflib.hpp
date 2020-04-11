@@ -326,13 +326,13 @@ Map(ResType (*func)(InputType), const vector<InputType> &was) {
     return res;
 }
 
-class poly_hash {
-    private:public:
+template <class Seq> class poly_hash {
+    private:
         const int M = MOD;
         int seed, n;
         vector<int> pows, hsh;
     public:
-        poly_hash(const string &s) : seed(228), n((int)s.size()) {
+        poly_hash(const Seq &s) : seed(228), n((int)s.size()) {
             pows.push_back(1);
             for (int i = 1; i <= n; i++)
                 pows.push_back((pows.back() * seed + M) % M);
