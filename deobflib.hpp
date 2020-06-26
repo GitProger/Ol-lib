@@ -91,6 +91,15 @@ template <typename T> ostream &operator<< (ostream &out, const vector<T> &v) {
     return out;
 }
 
+template <class T> ostream &operator<< (ostream &out, const pair<T, T> &v) { 
+    out << v.fir << ' ' << v.sec;
+    return out;
+}
+template <class T> istream &operator>> (istream &in, pair<T, T> &v) {
+    in >> v.fir >> v.sec;
+    return in;
+}
+
 static void init_iostream_speed() {
     cin.tie(nullptr);
     cout.tie(nullptr);
