@@ -111,6 +111,9 @@ a){for(int&x:a)in>>x;return in;}fastio console;
 
 class yesno{private:string yes,no;public:yesno(string y,string n):yes(y),no(n){}
 string operator()(bool ok)const{return ok?this->yes:this->no;}};
+template<class T>ostream&operator<<(ostream&out,const pair<T,T>&v){out<<v.fir<<
+' '<<v.sec;return out;}template<class T>istream&operator>>(istream&in,pair<T,T>
+&v){in>>v.fir>>v.sec;return in;}
 
 
 Answerer fanswer(cout);
