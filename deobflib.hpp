@@ -37,12 +37,12 @@ typedef bitset<64> bits;
 #define MAX LONG_LONG_MAX
 #define MIN LONG_LONG_MIN
 #define coutop(type, code) \
-    ostream &operator << (ostream &out, const type &__##type) { \
+    ostream &operator << (ostream &out, const type &_) { \
         {code}\
         return out;\
     } 
 #define cinop(type, code) \
-    istream &operator >> (istream &in, type &__##type) { \
+    istream &operator >> (istream &in, type &_) { \
         {code}\
         return in;\
     }
