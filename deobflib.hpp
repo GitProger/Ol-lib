@@ -335,6 +335,34 @@ Map(ResType (*func)(InputType), const vector<InputType> &was) {
     return res;
 }
 
+template <class R, class I> vector<R>
+Map(function<R(I)> func, const vector<I> &was) {
+    vector<R> res;
+    res.reserve(was.size());
+    for (const auto &e : was) res.push_back(func(e));
+    return res;
+}
+
+
+template <class E> E
+Reduce(function<E(E, E)> func, const vector<E> &arr) {
+    int n = (int)arr.size();
+    if (n == 0) return E();
+    E res = arr[0];
+    for (int i = 1; i < n; i++) res = func(res, arr[i]);
+    return res;
+}
+
+template <class E> E
+Reduce(E(*func)(E, E), const vector<E> &arr) {
+    int n = (int)arr.size();
+    if (n == 0) return E();
+    E res = arr[0];
+    for (int i = 1; i < n; i++) res = func(res, arr[i]);
+    return res;
+}
+
+
 template <class Seq> class poly_hash {
     private:
         const int M = MOD;
